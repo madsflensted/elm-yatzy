@@ -53,7 +53,8 @@ all =
       suite "four of a kind"
         [
           test "lost" (assertEqual  0 (Yatzy.Score.fourOfAKind [2,3,3,3,5])),
-          test "won"  (assertEqual 20 (Yatzy.Score.fourOfAKind [5,5,2,5,5]))
+          test "won"  (assertEqual 20 (Yatzy.Score.fourOfAKind [5,5,2,5,5])),
+          test "won2"  (assertEqual 20 (Yatzy.Score.fourOfAKind [5,5,5,5,5]))
         ],
 
       --   threeOfAKind ds has a value when there are three of a kind in
@@ -62,7 +63,8 @@ all =
       suite "three of a kind"
         [
           test "lost" (assertEqual  0 (Yatzy.Score.threeOfAKind [2,3,4,3,5])),
-          test "won"  (assertEqual 12 (Yatzy.Score.threeOfAKind [4,1,4,2,4]))
+          test "won"  (assertEqual 12 (Yatzy.Score.threeOfAKind [4,1,4,2,4])),
+          test "won2"  (assertEqual 12 (Yatzy.Score.threeOfAKind [4,4,4,2,4]))
         ],
 
       --   onePair ds has a value when there is a pair in the roll and then
@@ -70,7 +72,8 @@ all =
       suite "one pair"
         [
           test "lost" (assertEqual  0 (Yatzy.Score.onePair [2,3,4,1,5])),
-          test "won"  (assertEqual 12 (Yatzy.Score.onePair [4,6,6,2,5]))
+          test "won"  (assertEqual 12 (Yatzy.Score.onePair [4,6,6,2,5])),
+          test "won2" (assertEqual 10 (Yatzy.Score.onePair [4,5,5,2,5]))
         ],
 
       --   twoPairs ds has a value when there is two pairs in the roll and
@@ -79,7 +82,8 @@ all =
       suite "two pairs"
         [
           test "lost" (assertEqual  0 (Yatzy.Score.twoPair [2,3,3,3,3])),
-          test "won"  (assertEqual 16 (Yatzy.Score.twoPair [2,4,6,2,6]))
+          test "won"  (assertEqual 16 (Yatzy.Score.twoPair [2,4,6,2,6])),
+          test "won2"  (assertEqual 16 (Yatzy.Score.twoPair [2,2,6,2,6]))
         ],
 
       --   fullHouse ds has a value when there is three of a kind and a pair
